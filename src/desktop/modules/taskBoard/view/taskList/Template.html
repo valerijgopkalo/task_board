@@ -1,0 +1,50 @@
+<div class="task-list">
+    <div class="task-list__header">
+        {{_getTitle()}}
+
+        <span
+            class="badge badge-pill badge-secondary"
+            v-show="_hasTasks()"
+        >
+            {{ _getTaskCount() }}
+        </span>
+    </div>
+
+    <div class="task-list__body">
+        <div
+            class="task-list__items list-group"
+            ref="rootList"
+            :class="{'shadow': _isActiveDragZone()}"
+            droppable="true"
+            @drop="_toDrop($event)"
+            @dragover.prevent
+            @dragenter.prevent="_toDragEnter"
+            @dragleave.prevent="_toDragLeave"
+            @dragend.prevent="_toDragEnd"
+        >
+            <div v-if="!_hasTasks()">
+                To add a task, click the "add" button :)
+            </div>
+
+            <Item
+                class="list-group-item list-group-item-action"
+                v-for="item in _getItems()"
+                :item="item"
+                :key="item.getId()"
+                @edit="_editItem"
+                @delete="_deleteItem"
+            >
+            </Item>
+        </div>
+    </div>
+
+    <div class="task-list__footer">
+        <button
+                type="button"
+                class="btn btn-outline-primary btn-sm text-uppercase"
+                @click="_toCreateItem"
+        >
+            <span class="bi bi-plus"></span> add
+        </button>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div
+    class="modal d-flex align-items-center justify-content-center"
+    :class="_getClassNames()"
+    v-if="_isOpen()"
+    @click.self="_closeDialogByOverlay"
+>
+    <div class="modal-dialog">
+        <div class="modal-content flex-column">
+            <div class="modal__header">
+                <div class="modal__title">
+                    {{_getTitle()}}
+                </div>
+
+                <button
+                        type="button"
+                        class="modal__close reset-btn-styles"
+                        @click="_toCancel"
+                >
+                    <span class="bi bi-x-lg"></span>
+                </button>
+            </div>
+
+            <div class="modal__body custom-scroll">
+                <BodyComponent
+                        v-if="!_isHTML()"
+                        :component="_getBody()"
+                        :props="_getComponentProps()"
+                >
+                </BodyComponent>
+
+                <div v-if="_isHTML()" v-html="_getBody()"></div>
+            </div>
+
+            <div class="modal__footer text-right" v-if="_hasFooter()">
+                <button
+                        type="button" class="btn btn-primary btn-md text-uppercase"
+                        v-if="_hasCancelAction()"
+                        @click="_toCancel"
+                >
+                    {{_getTitleOfCancelAction()}}
+                </button>
+
+                <button
+                        type="button" class="btn btn-success btn-md text-uppercase"
+                        v-if="_hasConfirmAction()"
+                        @click="_toConfirm"
+                >
+                    {{_getTitleOfConfirmAction()}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

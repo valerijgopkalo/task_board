@@ -1,0 +1,42 @@
+<div class="task-board">
+    <div class="task-board__body">
+        <div class="loader" v-if="_isLoading()">
+            <span class="spinner spinner-border text-primary"></span>
+        </div>
+
+        <div class="task-board__columns custom-scroll">
+            <TaskList
+                    :title="_getTodoListTitle()"
+                    :type="_getTodoType()"
+                    :items="_getTodoTasks()"
+                    @create="_toCreateTask"
+                    @editItem="_toEditTask"
+                    @deleteItem="_toDeleteTask"
+                    @updateItemAfterDropped="_updateItemAfterDropped"
+            >
+            </TaskList>
+
+            <TaskList
+                    :title="_getInProgressListTitle()"
+                    :type="_getInProgressType()"
+                    :items="_getInProgressTasks()"
+                    @create="_toCreateTask"
+                    @editItem="_toEditTask"
+                    @deleteItem="_toDeleteTask"
+                    @updateItemAfterDropped="_updateItemAfterDropped"
+            >
+            </TaskList>
+
+            <TaskList
+                    :title="_getDoneListTitle()"
+                    :type="_getDoneType()"
+                    :items="_getDoneTasks()"
+                    @create="_toCreateTask"
+                    @editItem="_toEditTask"
+                    @deleteItem="_toDeleteTask"
+                    @updateItemAfterDropped="_updateItemAfterDropped"
+            >
+            </TaskList>
+        </div>
+    </div>
+</div>

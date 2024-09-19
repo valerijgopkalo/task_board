@@ -1,0 +1,28 @@
+.reset-btn-styles {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.custom-scroll {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $colorGray;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $colorGray;
+  }
+}

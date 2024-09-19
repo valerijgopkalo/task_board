@@ -1,0 +1,26 @@
+@import "taskCreator/main.scss";
+
+.task-board {
+  @import "taskList/main.scss";
+
+  & {
+    max-width: $maxSMResolution;
+    min-height: 300px;
+    overflow: hidden;
+  }
+
+  .task-board__columns {
+    display: flex;
+    overflow-x: auto;
+  }
+}
+
+@include md {
+  .task-board {
+    max-width: 100%;
+
+    .task-board__columns {
+      overflow-x: visible;
+    }
+  }
+}

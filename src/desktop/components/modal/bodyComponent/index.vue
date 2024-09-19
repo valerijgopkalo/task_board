@@ -1,0 +1,1 @@
+<script src="./BodyComponent.js"></script>

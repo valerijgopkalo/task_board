@@ -1,0 +1,27 @@
+<div
+    class="item"
+    draggable="true"
+    @dragstart="_dragStart"
+>
+    <div class="item__body">
+        {{item.getTitle()}}
+    </div>
+
+    <div class="item__footer">
+        <button
+                type="button"
+                class="reset-btn-styles"
+                @click="_edit"
+        >
+            <span class="bi bi-pencil-fill"></span>
+        </button>
+
+        <button
+                type="button"
+                class="reset-btn-styles"
+                @click="_delete"
+        >
+            <span class="bi bi-trash"></span>
+        </button>
+    </div>
+</div>

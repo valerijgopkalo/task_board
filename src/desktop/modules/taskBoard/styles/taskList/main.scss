@@ -1,0 +1,37 @@
+.task-list {
+  min-width: 220px;
+  flex-basis: 100%;
+  flex-grow: 1;
+
+  & + .task-list {
+    margin-left: 50px;
+  }
+
+  .task-list__header,
+  .task-list__body {
+    margin-bottom: 20px;
+  }
+
+  .task-list__items {
+    min-height: 30px;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+
+    .item__body {
+      margin-right: 10px;
+      word-break: break-all;
+    }
+
+    .item__footer {
+      display: flex;
+      align-items: flex-start;
+
+      button + button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
