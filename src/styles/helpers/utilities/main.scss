@@ -11,6 +11,12 @@
   }
 }
 
+.clip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .custom-scroll {
   &::-webkit-scrollbar {
     width: 4px;

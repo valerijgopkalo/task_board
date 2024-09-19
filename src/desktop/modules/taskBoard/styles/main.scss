@@ -1,5 +1,11 @@
 @import "taskCreator/main.scss";
 
+.modal.modal--task-creator {
+  .modal__header {
+    padding: 20px;
+  }
+}
+
 .task-board {
   @import "taskList/main.scss";
 

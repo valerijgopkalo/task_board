@@ -67,6 +67,14 @@ export default {
             },
             /**
              * @private
+             * @property _classNames
+             * @type {Object}
+             */
+            _classNames: {
+                modalTaskCreator: "modal--task-creator"
+            },
+            /**
+             * @private
              * @property _messages
              * @type {Object}
              */
@@ -167,6 +175,7 @@ export default {
         },
         _toDeleteTask(task) {
             this.ModalDialogService.open({
+                title: task.getTitle(),
                 size: this.ModalDialogService.getSizes().getSm(),
                 html: true,
                 body: this._messages.deleteItem,
@@ -186,6 +195,7 @@ export default {
         },
         _toShowTask(props) {
             this.ModalDialogService.open({
+                className: this._classNames.modalTaskCreator,
                 size: this.ModalDialogService.getSizes().getMd(),
                 body: TaskCreator,
                 ...props
